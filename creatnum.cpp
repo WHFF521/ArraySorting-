@@ -6,9 +6,8 @@ using namespace std;
 
 void creatNum::CreatRandomFile(int n,int r)
 {
-      cout<<"@@"<<endl;
     ofstream outfile;
-    outfile.open("in.txt");
+    outfile.open("in.in");
     srand((unsigned)time(NULL));
     for(int i=1;i<=n;i++){
         outfile<<rand()%r<<" ";
@@ -16,7 +15,6 @@ void creatNum::CreatRandomFile(int n,int r)
     }
     outfile<<endl;
     outfile.close();
-    cout<<"@@"<<endl;
 }
 
 

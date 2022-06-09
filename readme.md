@@ -51,7 +51,7 @@
 
 ### (3) freopen的应用错误
 
-  以前竞赛一直用的freopen，但是也不知道到底的怎么用的，就知道加进去。现在我直接加类里面去会发生创建文件后后面的代码就运行不了，程序自动退出的问题。我也不知道怎么解决。最好的解决办法就是~~~换一种读入写出的方法~~
+  以前竞赛一直用的freopen，但是也不知道到底的怎么用的，就知道加进去。现在我直接加类里面去会发生创建文件后后面的代码就运行不了，程序自动退出的问题。我也不知道怎么解决。最好的解决办法就是~~换一种读入写出的方法~~
 
 ```
 #include<fstream>
@@ -65,3 +65,37 @@
 ```
 
 简单来说就是替换cin,cout的位置就行了。
+
+### （4）静态数组爆炸问题
+
+​     没想到第一个写的用STL里的sort函数的排序方法就寄了。本来我是这样写的：
+
+```c++
+void ArraySorting::StlSort()
+{
+    clacTime T;
+    int b[length];
+    for(int i=1;i<=length;i++) b[i]=a[i];
+    T.begin();
+    sort(b+1,b+length+1);
+    T.end();
+    T.lastTime();
+}
+```
+
+数组范围开到1e6代码就挂了，原因应该是静态数组开的内存太大爆炸了，解决方法就是换成动态数组及时清除掉：
+
+```c++
+void ArraySorting::StlSort()
+{
+    clacTime T;
+    int *b=new int[length+100];
+    for(int i=1;i<=length;i++) b[i]=a[i];
+    T.begin();
+    sort(b+1,b+length+1);
+    T.end();
+    delete[] b;
+    T.lastTime();
+}
+```
+

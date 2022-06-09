@@ -15,6 +15,7 @@ int main()
     creatNum Cnum(num_,range_); 
     Cnum.CreatRandomFile();//创建随即数组txt文件
     ArraySorting shuzu(num_);
-    shuzu.printf_Array();//
+    //shuzu.printf_Array();//
+    shuzu.StlSort();
     return 0;
 }
