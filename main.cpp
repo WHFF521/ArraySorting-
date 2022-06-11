@@ -17,5 +17,12 @@ int main()
     ArraySorting shuzu(num_);
     //shuzu.printf_Array();//
     shuzu.StlSort();
+    shuzu.quick_sort();
+    shuzu.selectSort();
+    shuzu.insertionSort();
+    shuzu.bubbleSort();
+    shuzu.mergeSort();
+    shuzu.Shell_sort();
+    shuzu.radixsort();
     return 0;
 }
